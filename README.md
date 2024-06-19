@@ -21,4 +21,4 @@
 
 BONUS BONUS: Filtern nach Category, Country
 
-<!-- TODO: Anzahl Article begrenzen -->
+<!-- TODO: No Matches found -->
