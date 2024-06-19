@@ -22,8 +22,8 @@ form.addEventListener("submit", (event: Event) => {
     console.log("Filtered by German");
   }
   if (filter.value === "Newest") {
-    filterNewestArticle();
-    console.log("Filtered by German");
+    // filterNewestArticle();
+    console.log("Filtered by Newest");
   } else {
     fetchArticles();
     console.log("1stfetch Articles Submitted");
@@ -92,8 +92,6 @@ function fetchArticles() {
     });
 }
 
-// fetchArticles();
-
 function displayArticles(allArticles: IArticle[]) {
   const articleObject = Object.values(allArticles);
   console.log("1.Durchgang", articleObject);
@@ -160,21 +158,22 @@ function filterArticlesByLanguage() {
     });
 }
 // function filterArticlesByRelevancy() {}
-function filterNewestArticle() {
-  console.log("FETCHfilterNewest");
-  fetch(buildFetchUrlForFilter())
-    .then((response: Response) => {
-      if (!response.ok) {
-        throw Error(`${response.status} ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then((articles: IArticle[]) => {
-      articles.sort((a: IArticle, b: IArticle) => {
-        return (
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-        );
-      });
-      displayArticles(articles);
-    });
-}
+
+// function filterNewestArticle() {
+//   console.log("FETCHfilterNewest");
+//   fetch(buildFetchUrlForFilter())
+//     .then((response: Response) => {
+//       if (!response.ok) {
+//         throw Error(`${response.status} ${response.statusText}`);
+//       }
+//       return response.json();
+//     })
+//     .then((articles: IArticle[]) => {
+//       articles.sort((a: IArticle, b: IArticle) => {
+//         return (
+//           new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+//         );
+//       });
+//       displayArticles(articles);
+//     });
+// }
