@@ -1,5 +1,5 @@
 import Languages from "./contracts/Languages";
-import { IArticle, ISource } from "./contracts/IArticle";
+import { IArticle } from "./contracts/IArticle";
 import { API_KEY } from "./env";
 
 //*
@@ -16,14 +16,13 @@ form.addEventListener("submit", (event: Event) => {
   if (filter.value === "Popularity") {
     filterArticlesByPopularity();
     console.log("Filtered by Popularity");
-  }
-  if (languageFilter.value === Languages.German) {
+  } else if (languageFilter.value === Languages.German) {
     filterArticlesByLanguage();
     console.log("Filtered by German");
-  }
-  if (filter.value === "Newest") {
+    // }
+    // if (filter.value === "Newest") {
     // filterNewestArticle();
-    console.log("Filtered by Newest");
+    //   console.log("Filtered by Newest");
   } else {
     fetchArticles();
     console.log("1stfetch Articles Submitted");
@@ -59,8 +58,12 @@ function buildFetchUrlForFilter() {
   const LANGUAGE = `&language=${language}`;
   const popularity = filter.value;
   const POPULARITY = `&sortBy=${popularity}`;
-  const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
-  return ARTICLES_URL;
+  // const relevancy = filter.value;
+  // const RELEVANCY = `&sortBy=${relevancy}`;
+  // const newest = filter.value;
+  // const NEWEST = `&sortBy=${newest}`;
+  const ARTICLESFILTER_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
+  return ARTICLESFILTER_URL;
 }
 
 //*
