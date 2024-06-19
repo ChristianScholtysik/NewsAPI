@@ -170,8 +170,10 @@ function filterNewestArticle() {
       return response.json();
     })
     .then((articles: IArticle[]) => {
-      articles.sort((a, b) => {
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      articles.sort((a: IArticle, b: IArticle) => {
+        return (
+          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+        );
       });
       displayArticles(articles);
     });
