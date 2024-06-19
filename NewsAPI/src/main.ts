@@ -20,9 +20,13 @@ form.addEventListener("submit", (event: Event) => {
   if (languageFilter.value === Languages.German) {
     filterArticlesByLanguage();
     console.log("Filtered by German");
+  }
+  if (filter.value === "Newest") {
+    filterNewestArticle();
+    console.log("Filtered by German");
   } else {
     fetchArticles();
-    console.log("Submitted");
+    console.log("1stfetch Articles Submitted");
   }
 });
 
@@ -39,31 +43,31 @@ function buildFetchUrl() {
   return ARTICLES_URL;
 }
 
-function buildFetchUrl2() {
-  const inputValue = input.value;
-  const BASE_URL = "http://newsapi.org/v2/everything";
-  const QUESTION = `?q=${inputValue}`;
-  const ARTICLESBYPOPULARITY_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&sortBy=popularity&apiKey=${API_KEY}`;
-  return ARTICLESBYPOPULARITY_URL;
-}
+// function buildFetchUrl2() {
+//   const inputValue = input.value;
+//   const BASE_URL = "http://newsapi.org/v2/everything";
+//   const QUESTION = `?q=${inputValue}`;
+//   const ARTICLESBYPOPULARITY_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&sortBy=popularity&apiKey=${API_KEY}`;
+//   return ARTICLESBYPOPULARITY_URL;
+// }
 
-function buildFetchUrl3() {
+function buildFetchUrlForFilter() {
+  const inputValue = input.value;
+  const BASE_URL = "https://newsapi.org/v2/everything";
+  const QUESTION = `?q=${inputValue}`;
   const language = languageFilter.value;
   const LANGUAGE = `&language=${language}`;
   const popularity = filter.value;
   const POPULARITY = `&sortBy=${popularity}`;
-  const inputValue = input.value;
-  const BASE_URL = "http://newsapi.org/v2/everything";
-  const QUESTION = `?q=${inputValue}`;
-  const ARTICLESBYGERMAN_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
-  return ARTICLESBYGERMAN_URL;
+  const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
+  return ARTICLES_URL;
 }
 
 //*
 function fetchArticles() {
   console.log("fetchArticles");
   let allArticles: IArticle[] = [];
-  buildFetchUrl();
+
   fetch(buildFetchUrl())
     .then((response: Response) => {
       if (!response.ok) {
@@ -128,7 +132,7 @@ function displayArticles(allArticles: IArticle[]) {
 }
 
 function filterArticlesByPopularity() {
-  fetch(buildFetchUrl3())
+  fetch(buildFetchUrlForFilter())
     .then((response: Response) => {
       if (!response.ok) {
         throw Error(`${response.status} ${response.statusText}`);
@@ -143,7 +147,7 @@ function filterArticlesByPopularity() {
 
 function filterArticlesByLanguage() {
   console.log("FETCHfilterbyLAnguage");
-  fetch(buildFetchUrl3())
+  fetch(buildFetchUrlForFilter())
     .then((response: Response) => {
       if (!response.ok) {
         throw Error(`${response.status} ${response.statusText}`);
@@ -156,4 +160,19 @@ function filterArticlesByLanguage() {
     });
 }
 // function filterArticlesByRelevancy() {}
-function filterNewestArticle() {}
+function filterNewestArticle() {
+  console.log("FETCHfilterNewest");
+  fetch(buildFetchUrlForFilter())
+    .then((response: Response) => {
+      if (!response.ok) {
+        throw Error(`${response.status} ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then((articles: IArticle[]) => {
+      articles.sort((a, b) => {
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      });
+      displayArticles(articles);
+    });
+}
