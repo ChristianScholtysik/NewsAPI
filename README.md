@@ -6,10 +6,10 @@
   - Dropdown languages (BONUS)
     Grundfunktion:
   - Dropdown - Relevanz - Popularität - neueste
-    <!-- 
+    <!--
     relevancy
-    popularity 
-    publishedAt 
+    popularity
+    publishedAt
     -->
     - SuchButton
 
@@ -20,3 +20,5 @@
   - Button
 
 BONUS BONUS: Filtern nach Category, Country
+
+<!-- TODO: Anzahl Article begrenzen -->
