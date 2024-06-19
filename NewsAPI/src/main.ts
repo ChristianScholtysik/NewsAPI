@@ -12,13 +12,19 @@ const form = document.getElementById("form") as HTMLFormElement;
 
 form.addEventListener("submit", (event: Event) => {
   event.preventDefault();
+  const relevance = document.getElementById("relevance") as HTMLSelectElement;
 
   if (filter.value === "Popularity") {
     filterArticlesByPopularity();
     console.log("Filtered by Popularity");
-  } else if (languageFilter.value === Languages.German) {
-    filterArticlesByLanguage();
-    console.log("Filtered by German");
+
+    // if (languageFilter.value === Languages.German) {
+    //   filterArticlesByLanguage();
+    //   console.log("Filtered by German");
+
+    // if (filter.value === "Relevance") {
+    //   console.log(relevance);
+
     // }
     // if (filter.value === "Newest") {
     // filterNewestArticle();
@@ -36,6 +42,7 @@ form.addEventListener("submit", (event: Event) => {
 
 function buildFetchUrl() {
   const inputValue = input.value;
+  console.log("input value: ", inputValue);
   const BASE_URL = "https://newsapi.org/v2/everything";
   const QUESTION = `?q=${inputValue}`;
   const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&apiKey=${API_KEY}`;
@@ -52,16 +59,16 @@ function buildFetchUrl() {
 
 function buildFetchUrlForFilter() {
   const inputValue = input.value;
+  console.log("input value2filterfetch: ", inputValue);
   const BASE_URL = "https://newsapi.org/v2/everything";
   const QUESTION = `?q=${inputValue}`;
+  // const inputValue = input.value;
+  // const BASE_URL = "https://newsapi.org/v2/everything";
+  // const QUESTION = `?q=${inputValue}`;
   const language = languageFilter.value;
   const LANGUAGE = `&language=${language}`;
   const popularity = filter.value;
   const POPULARITY = `&sortBy=${popularity}`;
-  // const relevancy = filter.value;
-  // const RELEVANCY = `&sortBy=${relevancy}`;
-  // const newest = filter.value;
-  // const NEWEST = `&sortBy=${newest}`;
   const ARTICLESFILTER_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
   return ARTICLESFILTER_URL;
 }
@@ -70,7 +77,7 @@ function buildFetchUrlForFilter() {
 function fetchArticles() {
   console.log("fetchArticles");
   let allArticles: IArticle[] = [];
-
+  // fetch(buildFetchUrlForFilter())
   fetch(buildFetchUrl())
     .then((response: Response) => {
       if (!response.ok) {
