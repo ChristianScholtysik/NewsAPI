@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #393939;
+}
+
+#form{
+    background-color: blueviolet;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 1em;
+}
+
+h1{
+    font-size: 3rem;
+    text-align: center;
+}
+
+#form input, #form select {
+    border-radius: 25px;
+    padding: 0.5em 1.5em;
+    border: none;
+}
+
+#output{
+
+    width: 90vw;
+    margin: 3em auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 550px 1fr;
+    gap: 1em;
+    grid-auto-rows: 550px;
+
+}
+
+.card{
+    background-color: aliceblue;
+    border-radius: 16px;
+    width: 400px;
+}
+
+.img-wrapper{
+    
+}
+
+.img-wrapper img{
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+}
+
+
+/*
+
+<div class="card">
+    <div class="img-wrapper">
+    <img  src="${article.urlToImage}" alt="bild">
+    </div>
+ <h2>${article.title}</h2>
+ <p id=description-paragraph">${article.description}</p>
+ <div class="author-wrapper">
+ <p id=author-paragraph">${article.author}</p>
+ <p id=published-paragraph">${article.publishedAt}</p>
+ </div>
+ <a href='${article.url}'target="blank">
+<button id="card-btn" >Read more</button>
+</a>
+    </div> 
+
+*/
