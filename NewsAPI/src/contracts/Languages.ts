@@ -1,10 +1,10 @@
 enum Languages {
   German = "de",
-  // English,
-  // Spanish,
-  // French,
-  // Russian,
-  // Arabic,
-  // Chinese,
+  English = "en",
+  Spanish = "es",
+  French = "fr",
+  Russian = "ru",
+  Arabic = "ar",
+  Chinese = "zh",
 }
 export default Languages;
