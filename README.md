@@ -24,22 +24,23 @@ News API
 ## Setup and Installation
 
 1. Clone the repository:
-   git clone https://github.com/your-username/news-app.git
-   cd news-app
+
+   - git clone https://github.com/your-username/news-app.git
+   - cd news-app
 
 2. Install dependencies:
-   npm install
+
+   - npm install
 
 3. Add your News API key:
 
 - Create a file named env.ts in the root directory.
 - Add your News API key in the following format:
-
-export const API_KEY = "your_news_api_key";
+  export const API_KEY = "your_news_api_key";
 
 4. Run the application:
 
-npm start
+- npm start
 
 ## File Structure
 
@@ -48,10 +49,11 @@ npm start
 ## Usage
 
 1. Search for Articles
-   Enter a keyword in the search input field.
-   Select a language from the language dropdown.
-   Select a popularity filter from the filter dropdown.
-   Click the "Search" button to fetch and display articles based on the provided filters.
+
+   - Enter a keyword in the search input field.
+   - Select a language from the language dropdown.
+   - Select a popularity filter from the filter dropdown.
+   - Click the "Search" button to fetch and display - articles based on the provided filters.
 
 2. Filter by Category
-   Click on any category button to fetch and display top headlines for that category.
+   - Click on any category button to fetch and display top headlines for that category.
