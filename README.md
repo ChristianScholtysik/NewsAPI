@@ -1,21 +1,22 @@
 # News App
 
-Description
+## Description
+
 This project is a simple web application that allows users to search for news articles based on various filters and categories. The app fetches news articles from the News API and displays them dynamically on the web page. Users can filter articles by keywords, language, popularity, and category.
 
 ## Features
 
-Search for news articles using keywords.
-Filter news articles by language and popularity.
-Display top headlines by category.
-Error handling for API requests and displaying appropriate messages.
+- Search for news articles using keywords.
+- Filter news articles by language and popularity.
+- Display top headlines by category.
+- Error handling for API requests and displaying appropriate messages.
 
 ## Technologies Used
 
-TypeScript
-HTML
-CSS
-News API
+- TypeScript
+- HTML
+- CSS
+- News API !([newsapi.org](https://newsapi.org/))
 
 ## Screenshots
 
