@@ -62,9 +62,6 @@ function buildFetchUrlForFilter() {
   console.log("input value2filterfetch: ", inputValue);
   const BASE_URL = "https://newsapi.org/v2/everything";
   const QUESTION = `?q=${inputValue}`;
-  // const inputValue = input.value;
-  // const BASE_URL = "https://newsapi.org/v2/everything";
-  // const QUESTION = `?q=${inputValue}`;
   const language = languageFilter.value;
   const LANGUAGE = `&language=${language}`;
   const popularity = filter.value;
