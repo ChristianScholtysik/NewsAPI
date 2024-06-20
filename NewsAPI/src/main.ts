@@ -184,3 +184,17 @@ function filterArticlesByLanguage() {
 //       displayArticles(articles);
 //     });
 // }
+
+//* Filter by category
+
+function buildFetchUrlForCategories() {
+  const generalCategory = document.getElementById(
+    "general-btn"
+  ) as HTMLButtonElement;
+
+  const BASE_URL = "https://newsapi.org/v2/top-headlines";
+  const category = ""; //TODO:
+  const CATEGORY = `category=${category}`;
+  const ARTICLESFILTERCATEGORY_URL = `${BASE_URL}?${CATEGORY}&apiKey=${API_KEY}`;
+  return ARTICLESFILTERCATEGORY_URL;
+}
