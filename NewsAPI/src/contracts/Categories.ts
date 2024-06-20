@@ -2,7 +2,7 @@ enum Category {
   General = "general",
   Business = "business",
   Entertainment = "entertainment",
-  health = "health",
+  Health = "health",
   Science = "science",
   Sports = "sports",
   Technology = "technology",
