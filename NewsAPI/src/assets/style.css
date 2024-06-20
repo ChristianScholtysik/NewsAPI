@@ -3,49 +3,95 @@
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  color: #393939;
 }
 
 body {
-  background-color: #393939;
+  background-color: #efefef;
+}
+
+main {
+  background-image: url(img/blue-earth.webp);
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 #form {
-  background-color: blueviolet;
+  margin-top: 3em;
   display: flex;
-  margin: 0 auto;
   justify-content: center;
   gap: 1em;
 }
 
 h1 {
+  padding-top: 5em;
   font-size: 3rem;
   text-align: center;
+  color: #393939;
 }
 
 #form input,
 #form select {
   border-radius: 25px;
   padding: 0.5em 1.5em;
+  border: 1px solid #d0d0d0;
+  background-color: transparent;
+}
+
+#form input[type="submit"] {
+  background-color: rgb(0, 179, 255);
+  padding: 0.5em 5em;
   border: none;
+  color: #fff;
+}
+
+#form input[type="submit"]:hover {
+  background-color: #1cace4;
+
+  cursor: pointer;
 }
 
 #output {
   width: 90vw;
   margin: 3em auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-template-rows: 550px 1fr;
-  gap: 1em;
+  gap: 1.5em;
   grid-auto-rows: 550px;
 }
 
 .card {
   background-color: aliceblue;
   border-radius: 16px;
-  width: 400px;
+  width: 550px;
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(134, 134, 134, 0.29);
+  box-shadow: 5px 5px 15px 0px rgba(134, 134, 134, 0.29);
 }
 
-.img-wrapper {
+.card h2 {
+  font-size: 1.2rem;
+  padding: 1em 1.5em;
+}
+
+.card p {
+  font-size: 0.9rem;
+  padding: 0 2em 0 2em;
+}
+
+.author-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.author-wrapper p {
+  font-size: 0.8rem;
+}
+
+#card-btn {
+  margin-left: 1.5em;
+  margin-top: 20px;
 }
 
 .img-wrapper img {
@@ -53,21 +99,26 @@ h1 {
   border-radius: 16px 16px 0 0;
 }
 
-/*
+#category-btn-wrapper {
+  margin: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
 
-<div class="card">
-    <div class="img-wrapper">
-    <img  src="${article.urlToImage}" alt="bild">
-    </div>
- <h2>${article.title}</h2>
- <p id=description-paragraph">${article.description}</p>
- <div class="author-wrapper">
- <p id=author-paragraph">${article.author}</p>
- <p id=published-paragraph">${article.publishedAt}</p>
- </div>
- <a href='${article.url}'target="blank">
-<button id="card-btn" >Read more</button>
-</a>
-    </div> 
+#category-btn-wrapper button,
+#card-btn {
+  border-radius: 16px;
+  padding: 0.5em 1.5em;
+  background-color: transparent;
+  border: 1px solid rgb(0, 179, 255);
+  cursor: pointer;
+  color: rgb(0, 179, 255);
+}
 
-*/
+#category-btn-wrapper button:hover,
+#card-btn:hover {
+  background-color: #1cace4;
+  color: #fff;
+  border: 1px solid #1cace4;
+}
