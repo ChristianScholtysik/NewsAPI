@@ -45,7 +45,6 @@ function fetchArticles() {
     .then((newsResponse: INewsResponse) => {
       return newsResponse.articles;
     })
-
     .then((articles: IArticle[]) => {
       allArticles = articles;
       displayArticles(articles);
@@ -55,7 +54,7 @@ function fetchArticles() {
       console.error(error);
       const output = document.getElementById("output");
       if (output) {
-        let errorCard = `   '<div class="errorCard-wrapper"><div class="errorCard">Not possible! A minimum of one searchparameter is required</div></div>`;
+        let errorCard = `<div class="errorCard-wrapper"><div class="errorCard">Not possible! A minimum of one searchparameter is required</div></div>`;
         output.innerHTML = errorCard;
         return ` output.innerHTML= errorCard `;
       }
@@ -67,10 +66,13 @@ function displayArticles(allArticles: IArticle[]) {
   if (output) {
     if (allArticles.length) {
       let articlesMap = allArticles.map((article: IArticle) => {
+        const imageUrl =
+          article.urlToImage ?? "../src/assets/img/news-placeholder.png";
+
         return `
     <div class="card">
     <div class="img-wrapper">
-    <img  src="${article.urlToImage}" alt="bild">
+     <img  src='${imageUrl}' alt="NewsImage">
     </div>
  <h2>${article.title}</h2>
  <p id=description-paragraph">${article.description}</p>
