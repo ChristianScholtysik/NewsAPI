@@ -67,7 +67,10 @@ function displayArticles(allArticles: IArticle[]) {
     if (allArticles.length) {
       let articlesMap = allArticles.map((article: IArticle) => {
         const imageUrl =
-          article.urlToImage ?? "../src/assets/img/news-placeholder.png";
+          article.urlToImage ??
+          "../src/assets/img/elementor-placeholder-image.png";
+
+        const teaserText = article.description ?? " ";
 
         return `
     <div class="card">
@@ -75,7 +78,7 @@ function displayArticles(allArticles: IArticle[]) {
      <img  src='${imageUrl}' alt="NewsImage">
     </div>
  <h2>${article.title}</h2>
- <p id=description-paragraph">${article.description}</p>
+ <p id=description-paragraph">${teaserText}</p>
  <div class="author-wrapper">
  <p id=author-paragraph">${article.author}</p>
  <p id=published-paragraph">${article.publishedAt}</p>
