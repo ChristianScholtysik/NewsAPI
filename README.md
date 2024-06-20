@@ -57,3 +57,7 @@ News API
 
 2. Filter by Category
    - Click on any category button to fetch and display top headlines for that category.
+
+## Contact
+
+Created by Pius (https://github.com/noctwo) & Christian (https://github.com/ChristianScholtysik)
