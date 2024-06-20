@@ -3,21 +3,25 @@
 Description
 This project is a simple web application that allows users to search for news articles based on various filters and categories. The app fetches news articles from the News API and displays them dynamically on the web page. Users can filter articles by keywords, language, popularity, and category.
 
-# Features
+## Features
 
 Search for news articles using keywords.
 Filter news articles by language and popularity.
 Display top headlines by category.
 Error handling for API requests and displaying appropriate messages.
 
-# Technologies Used
+## Technologies Used
 
 TypeScript
 HTML
 CSS
 News API
 
-# Setup and Installation
+## Screenshots
+
+![Example screenshot](./NewsAPI/src/assets/img/news-API-Screen-01.png)
+
+## Setup and Installation
 
 1. Clone the repository:
    git clone https://github.com/your-username/news-app.git
@@ -37,20 +41,11 @@ export const API_KEY = "your_news_api_key";
 
 npm start
 
-# File Structure
+## File Structure
 
-src/
-│
-├── contracts/
-│ ├── Category.ts
-│ ├── IArticle.ts
-│ ├── INewsResponse.ts
-│ └── Languages.ts
-│
-├── index.ts
-└── env.ts
+![Example codesnippet](./NewsAPI/src/assets/img/code.png)
 
-# Usage
+## Usage
 
 1. Search for Articles
    Enter a keyword in the search input field.
