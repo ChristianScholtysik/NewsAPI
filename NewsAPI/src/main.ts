@@ -101,7 +101,7 @@ function fetchArticles() {
       console.error(error);
       const output = document.getElementById("output");
       if (output) {
-        let errorCard = `<div class="ErrorCard">FEHLER</div>`;
+        let errorCard = `   '<div class="errorCard-wrapper"><div class="errorCard">Not possible! A minimum of one searchparameter is required</div></div>`;
         output.innerHTML = errorCard;
         return ` output.innerHTML= errorCard `;
       }
@@ -139,8 +139,9 @@ function displayArticles(allArticles: IArticle[]) {
       });
       output.innerHTML = articlesMap.toString();
     } else {
-      console.log("GGGG");
-      // output.innerHTML = '<div class="ErrorCard">FEHLER</div>';
+      console.error("No matches found");
+      output.innerHTML =
+        '<div class="errorCard-wrapper"><div class="errorCard">No matches found, Please try again!</div></div>';
     }
   }
 }
