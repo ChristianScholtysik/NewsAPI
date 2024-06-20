@@ -40,14 +40,14 @@ form.addEventListener("submit", (event: Event) => {
 // const QUESTION = `?q=${inputValue}`;
 // const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&apiKey=${API_KEY}`;
 
-function buildFetchUrl() {
-  const inputValue = input.value;
-  console.log("input value: ", inputValue);
-  const BASE_URL = "https://newsapi.org/v2/everything";
-  const QUESTION = `?q=${inputValue}`;
-  const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&apiKey=${API_KEY}`;
-  return ARTICLES_URL;
-}
+// function buildFetchUrl() {
+//   const inputValue = input.value;
+//   console.log("input value: ", inputValue);
+//   const BASE_URL = "https://newsapi.org/v2/everything";
+//   const QUESTION = `?q=${inputValue}`;
+//   const ARTICLES_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18&apiKey=${API_KEY}`;
+//   return ARTICLES_URL;
+// }
 
 // function buildFetchUrl2() {
 //   const inputValue = input.value;
@@ -63,9 +63,9 @@ function buildFetchUrlForFilter() {
   const BASE_URL = "https://newsapi.org/v2/everything";
   const QUESTION = `?q=${inputValue}`;
   const language = languageFilter.value;
-  const LANGUAGE = `&language=${language}`;
+  const LANGUAGE = language === "0" ? "" : `&language=${language}`;
   const popularity = filter.value;
-  const POPULARITY = `&sortBy=${popularity}`;
+  const POPULARITY = popularity === "0" ? "" : `&sortBy=${popularity}`;
   const ARTICLESFILTER_URL = `${BASE_URL}${QUESTION}&from=2024-06-08&to=2024-06-18${LANGUAGE}${POPULARITY}&apiKey=${API_KEY}`;
   return ARTICLESFILTER_URL;
 }
@@ -74,8 +74,9 @@ function buildFetchUrlForFilter() {
 function fetchArticles() {
   console.log("fetchArticles");
   let allArticles: IArticle[] = [];
-  // fetch(buildFetchUrlForFilter())
-  fetch(buildFetchUrl())
+
+  fetch(buildFetchUrlForFilter())
+    // fetch(buildFetchUrl())
     .then((response: Response) => {
       if (!response.ok) {
         throw Error(`${response.status} ${response.statusText}`);
@@ -102,15 +103,15 @@ function fetchArticles() {
 function displayArticles(allArticles: IArticle[]) {
   const articleObject = Object.values(allArticles);
   console.log("1.Durchgang", articleObject);
+  const articleObjectTotalResult = articleObject[1];
+  console.log("Object2", articleObjectTotalResult);
   const articleObjectSecondLevel = articleObject[2];
   const test = Object.values(articleObjectSecondLevel);
-  // const articleObjectSecondLevel = articleObject.slice()
   console.log("2.Durchgang", articleObjectSecondLevel);
-
   const output = document.getElementById("output");
   if (output) {
     let articlesMap = test.map((article: IArticle) => {
-      if (articleObject[1]) {
+      if (allArticles) {
         return `
     <div class="card">
     <div class="img-wrapper">
