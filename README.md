@@ -16,7 +16,7 @@ This project is a simple web application that allows users to search for news ar
 - TypeScript
 - HTML
 - CSS
-- News API !([newsapi.org](https://newsapi.org/))
+- News API ([newsapi.org](https://newsapi.org/))
 
 ## Screenshots
 
