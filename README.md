@@ -25,7 +25,7 @@ You can view a live demo of the project [here](https://christianscholtysik.githu
 
 ## Screenshots
 
-![Example screenshot](./NewsAPI/src/assets/img/news-API-Screen-01.png)
+![Example screenshot](./src/assets/img/news-API-Screen-01.png)
 
 ## Setup and Installation
 
