@@ -18,6 +18,11 @@ This project is a simple web application that allows users to search for news ar
 - CSS
 - News API ([newsapi.org](https://newsapi.org/))
 
+## Demo
+
+Unfortunately, CORS is enabled only for localhost in the free version!
+You can view a live demo of the project [here](https://christianscholtysik.github.io/ZooAdministration/).
+
 ## Screenshots
 
 ![Example screenshot](./NewsAPI/src/assets/img/news-API-Screen-01.png)
