@@ -21,7 +21,7 @@ This project is a simple web application that allows users to search for news ar
 ## Demo
 
 Unfortunately, CORS is enabled only for localhost in the free version!
-You can view a live demo of the project [here](https://christianscholtysik.github.io/ZooAdministration/).
+You can view a live demo of the project [here](https://christianscholtysik.github.io/NewsAPI/).
 
 ## Screenshots
 
